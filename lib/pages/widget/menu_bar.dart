@@ -1,6 +1,6 @@
+import 'package:abstract_coder/pages/widget/menu_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'menu_button.dart';
 
 class MenuBar extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _MenuBarState extends State<MenuBar> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.08,
       height: MediaQuery.of(context).size.height,
-      color: Colors.white,
+       color: Theme.of(context).dialogBackgroundColor,   
       child: Column(
         children: [
 

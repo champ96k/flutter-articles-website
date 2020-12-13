@@ -5,29 +5,26 @@ class MenuButton extends StatelessWidget {
   final String text;
   final IconData iconData;
 
-  const MenuButton({Key key, @required this.text,@required this.iconData})
-      : super(key: key);
+  const MenuButton({@required this.text, @required this.iconData});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.08, 
-      height: MediaQuery.of(context).size.height*0.13,    
-      child:Column(
+      width: MediaQuery.of(context).size.width * 0.08,
+      height: MediaQuery.of(context).size.height * 0.13,
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center, 
-
-          children: <Widget>[
-            FaIcon(
-              iconData,
-              size: 28,   
-              color: Colors.black,
-            ), 
-            Text(
-              text,
-            ),
-          ],
-        ), 
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          FaIcon(
+            iconData,
+            size: 28,
+          ),
+          Text(
+            text,
+          ),
+        ],
+      ),
     );
   }
 }
