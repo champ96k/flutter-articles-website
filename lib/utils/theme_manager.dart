@@ -18,7 +18,7 @@ class ThemeNotifier with ChangeNotifier {
       // ignore: deprecated_member_use
       textSelectionColor: Colors.black,
       bottomAppBarColor: Colors.black54,
-      cardColor: Colors.white,
+      cardColor: Color(0xFF39FF14), 
       canvasColor: Colors.grey[50],
       brightness: Brightness.light,
       accentColor: Colors.black,
@@ -49,12 +49,11 @@ class ThemeNotifier with ChangeNotifier {
       textSelectionColor: Colors.white,
       canvasColor: Colors.black,
       brightness: Brightness.dark,
-
       //content page background color
       dividerColor: Color(0xff12181B),
-
       //theme icon button color
-      errorColor: Color(0xff2A2E35));
+      errorColor: Color(0xff2A2E35),
+      cardColor: Color(0xFFFFD700));
 
   ThemeData _themeData;
   ThemeData getTheme() => _themeData;

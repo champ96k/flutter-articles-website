@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
               title: 'Abstract Coder',
               debugShowCheckedModeBanner: false,
               theme: theme.getTheme(),
-              home: HomePage(),
+              home: HomePage(), 
             )
         );
   }
