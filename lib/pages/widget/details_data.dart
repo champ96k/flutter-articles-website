@@ -11,7 +11,8 @@ class DetailsData extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
     return Container(
-      width: orientation == Orientation.portrait ? size.width : size.width * 0.92,
+      width:
+          orientation == Orientation.portrait ? size.width : size.width * 0.92,
       height: size.height,
       child: SingleChildScrollView(
         reverse: true,
@@ -40,12 +41,12 @@ class DetailsData extends StatelessWidget {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.white.withOpacity(0.8),
-                      offset: Offset(-6.0, -6.0),
+                      color: Colors.white.withOpacity(0.6),
+                      offset: Offset(-3.0, -3.0),
                       blurRadius: 16.0,
                     ),
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withOpacity(0.6),
                       offset: Offset(6.0, 6.0),
                       blurRadius: 16.0,
                     ),
@@ -53,7 +54,16 @@ class DetailsData extends StatelessWidget {
                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                child: Image.asset(Constant.testImage),
+                child: Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(6),
+                    child: Image.asset(
+                      Constant.testImage,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
               ),
               SizedBox(
                 height: size.height * 0.06,

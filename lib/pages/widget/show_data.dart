@@ -17,7 +17,8 @@ class ShowData extends StatelessWidget {
       scrollDirection: Axis.vertical,
       physics: ScrollPhysics(),
       shrinkWrap: true,
-      itemCount: data['articals_info'].length,
+      // itemCount: data['articals_info'].length,
+      itemCount: 16,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
         childAspectRatio: orientation == Orientation.portrait ? 0.52 : 0.74,
@@ -25,6 +26,7 @@ class ShowData extends StatelessWidget {
         mainAxisSpacing: size.width * 0.03,
       ),
       itemBuilder: (BuildContext context, int index) {
+        index = 0;
         return GestureDetector(
           onTap: () {
             print("Button Press");
@@ -55,15 +57,18 @@ class ShowData extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 4,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10.0),
-                      topRight: Radius.circular(10.0),
-                    ),
-                    child: Image(
-                      fit: BoxFit.cover,
-                      // image: NetworkImage("${articalResponce[index]['imageurl']}"),
-                      image: AssetImage(Constant.testImage),
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        topRight: Radius.circular(10.0),
+                      ),
+                      child: Image(
+                        fit: BoxFit.cover,
+                        // image: NetworkImage("${articalResponce[index]['imageurl']}"),
+                        image: AssetImage(Constant.testImage),
+                      ),
                     ),
                   ),
                 ),
