@@ -26,30 +26,30 @@ class ShowData extends StatelessWidget {
       ),
       itemBuilder: (BuildContext context, int index) {
         index = 0;
-        return Card(
-          elevation: 3.5,
-          shadowColor: Colors.grey,
-          // ignore: deprecated_member_use
-          color: Theme.of(context).cursorColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (c, a1, a2) => DetailsPage(
-                    response: articalResponce[index],
-                  ),
-                  transitionsBuilder: (c, anim, a2, child) => ScaleTransition(
-                    child: child,
-                    alignment: Alignment.topCenter,
-                    scale: anim,
-                  ),
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (c, a1, a2) => DetailsPage(
+                  response: articalResponce[index],
                 ),
-              );
-            },
+                transitionsBuilder: (c, anim, a2, child) => ScaleTransition(
+                  child: child,
+                  alignment: Alignment.topCenter,
+                  scale: anim,
+                ),
+              ),
+            );
+          },
+          child: Card(
+            elevation: 3.5,
+            shadowColor: Colors.grey,
+            // ignore: deprecated_member_use
+            color: Theme.of(context).cursorColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -63,8 +63,7 @@ class ShowData extends StatelessWidget {
                         topRight: Radius.circular(10.0),
                       ),
                       child: CachedNetworkImage(
-                        imageUrl:
-                            articalResponce[index]['imageurl'] as String,
+                        imageUrl: articalResponce[index]['imageurl'] as String,
                         fit: orientation == Orientation.portrait
                             ? BoxFit.fitWidth
                             : BoxFit.cover,
