@@ -1,7 +1,9 @@
 import 'package:abstract_coder/utils/constant.dart';
 import 'package:abstract_coder/utils/style.dart';
 import 'package:abstract_coder/widgets/theme_change.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class DetailsData extends StatelessWidget {
   final response;
@@ -15,7 +17,6 @@ class DetailsData extends StatelessWidget {
           orientation == Orientation.portrait ? size.width : size.width * 0.92,
       height: size.height,
       child: SingleChildScrollView(
-        reverse: true,
         scrollDirection: Axis.vertical,
         physics: ScrollPhysics(),
         child: Padding(
@@ -58,9 +59,18 @@ class DetailsData extends StatelessWidget {
                   padding: const EdgeInsets.all(3.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(6),
-                    child: Image.asset(
-                      Constant.testImage,
-                      fit: BoxFit.cover,
+                    child: CachedNetworkImage(
+                      imageUrl: response['imageurl'],
+                      fit: orientation == Orientation.portrait
+                          ? BoxFit.fitWidth
+                          : BoxFit.cover,
+                      errorWidget: (context, url, error) => Image(
+                        width: size.width,
+                        fit: orientation == Orientation.portrait
+                            ? BoxFit.fitWidth
+                            : BoxFit.cover,
+                        image: AssetImage(Constant.testImage),
+                      ),
                     ),
                   ),
                 ),
@@ -73,12 +83,8 @@ class DetailsData extends StatelessWidget {
                 color: Theme.of(context).dialogBackgroundColor,
                 child: Padding(
                   padding: const EdgeInsets.all(6.0),
-                  child: Text(
-                    response['desc'],
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Theme.of(context).bottomAppBarColor,
-                    ),
+                  child: Html(
+                    data: response['desc'],
                   ),
                 ),
               ),
@@ -86,7 +92,7 @@ class DetailsData extends StatelessWidget {
                 height: size.height * 0.06,
               ),
               Center(
-                  child: Text(
+                  child: Text( 
                 Constant.footerText,
                 textAlign: TextAlign.center,
                 style: TextStyle(

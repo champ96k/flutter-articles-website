@@ -26,7 +26,7 @@ class _ChangeThemeState extends State<ChangeTheme> {
             color: Theme.of(context).errorColor,
             child: Container(
               height: size.height * 0.055,
-              width: size.width * 0.05,
+              width: size.width * 0.08,
               alignment: Alignment.center,
               child: IconButton(
                 icon: _isdark

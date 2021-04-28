@@ -20,7 +20,6 @@ class _ArticalsState extends State<Articals> {
         }
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data = snapshot.data.data();
-          //print("Response: $data");
           return ShowData(data: data);
         }
         return Center(

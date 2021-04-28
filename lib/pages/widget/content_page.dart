@@ -10,7 +10,6 @@ class ContentPage extends StatefulWidget {
 }
 
 class _ContentPageState extends State<ContentPage> {
- 
   @override
   Widget build(BuildContext context) {
     final orientation = MediaQuery.of(context).orientation;
@@ -20,7 +19,6 @@ class _ContentPageState extends State<ContentPage> {
       width: orientation == Orientation.portrait ? size.width : size.width * 0.92,
       height: size.height,
       child: SingleChildScrollView(
-        reverse: true,
         scrollDirection: Axis.vertical,
         physics: ScrollPhysics(),
         child: Padding(
@@ -34,11 +32,8 @@ class _ContentPageState extends State<ContentPage> {
               ),
               Wrap(
                 children: [
-                  Text(
-                    Constant.abstractTitle,
-                      textAlign: TextAlign.left, 
-                      style: AppTheme.titleTheme
-                    ),
+                  Text(Constant.abstractTitle,
+                      textAlign: TextAlign.left, style: AppTheme.titleTheme),
                   SizedBox(
                     height: 6,
                   ),

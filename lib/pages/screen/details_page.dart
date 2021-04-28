@@ -17,19 +17,20 @@ class _DetailsPageState extends State<DetailsPage> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-          width: size.width,
-          height: size.height,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // Menu
-              orientation == Orientation.portrait ? Container() : MenuBar(),
-              // Content page
-              DetailsData(
-                response: widget.response,
-              ),
-            ],  
-          )),
+        width: size.width,
+        height: size.height,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Menu
+            orientation == Orientation.portrait ? Container() : MenuBar(),
+            // Content page
+            DetailsData(
+              response: widget.response,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
