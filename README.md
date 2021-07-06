@@ -3,7 +3,7 @@
 A new Flutter project.
 
 ## TODO
- - [x] Make Live (Host in firebase)
- - [x] Code refactor
+ - [ ] Make Live (Host in firebase)
+ - [ ] Code refactor
 
 
